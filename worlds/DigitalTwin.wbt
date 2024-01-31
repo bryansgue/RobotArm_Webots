@@ -1,0 +1,38 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/RobotArm.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/drinks/protos/WaterBottle.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2746481179592378 -0.1785595558933358 -0.9448200338162941 4.823439967874354
+  position -0.0624831232031173 -1.042856483931454 0.6768285682323706
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+DEF ROBOT RobotArm {
+  hidden position_0_0 -3.7792061124974907e-07
+  hidden rotation_1 0.7071066475714215 0.7071069148016484 -3.285572692870879e-14 3.141593
+  hidden position_1_0 -1.55200241006196e-07
+  hidden rotation_2 0.5773502393213199 0.5773503289262282 0.5773502393213248 2.094394910395101
+  hidden position_2_0 -7.856596258775928e-08
+  hidden rotation_3 0 0 -1 7.884953353001448e-08
+  hidden position_3_0 -7.85490126276045e-08
+  hidden rotation_4 0 0 -1 7.884953353001448e-08
+  hidden position_4_0 -2.0129281482781692e-14
+  controller "<extern>"
+  supervisor TRUE
+  synchronization FALSE
+}
+WaterBottle {
+  translation -0.2784523270721687 -0.22651287093288122 -0.0023924000000000445
+  rotation -6.211662066676594e-16 1.043176938733952e-16 1 -2.425648901552279
+}

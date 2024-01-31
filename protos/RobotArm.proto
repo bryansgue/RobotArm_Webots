@@ -1,0 +1,471 @@
+#VRML_SIM R2023b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the RobotArm
+# Extracted from: /home/macheloortiz/Documents/RobotArm/robot.urdf
+
+PROTO RobotArm [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "RobotArm"  # Is `Robot.name`.
+  field  SFString    controller      "void"      # Is `Robot.controller`.
+  field  MFString    controllerArgs  []          # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""          # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE       # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE        # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE       # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance DEF base_material PBRAppearance {
+          baseColor 0.196078 0.196078 0.196078
+          roughness 1.000000
+          metalness 0
+        }
+        geometry DEF base_visual Mesh {
+          url "base_visual.stl"
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 -0.000000 -1.000000
+          anchor 0.031499 0.000000 0.055350
+        }
+        device [
+          RotationalMotor {
+            name "m1_continuous"
+            maxVelocity 22.0
+            maxTorque 1.5
+          }
+          PositionSensor {
+            name "m1_continuous_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.031499 0.000000 0.055350
+          rotation 0.707107 0.707107 0.000000 3.141593
+          children [
+            Shape {
+              appearance DEF zlink_material PBRAppearance {
+                baseColor 0.868627 0.890196 0.930392
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF zlink_visual Mesh {
+                url "zlink_visual.stl"
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 1.000000 -0.000000 -0.000000
+                anchor 0.022350 -0.000000 -0.032000
+              }
+              device [
+                RotationalMotor {
+                  name "m2"
+                  maxVelocity 22.0
+                  minPosition -1.9198621771937625
+                  maxPosition 1.9198621771937625
+                  maxTorque 1.5
+                }
+                PositionSensor {
+                  name "m2_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.022350 -0.000000 -0.032000
+                rotation 0.577350 0.577350 0.577350 2.094395
+                children [
+                  Shape {
+                    appearance DEF link_material PBRAppearance {
+                      baseColor 0.365590 0.371538 0.386467
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF link_visual Mesh {
+                      url "link_visual.stl"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 1.000000
+                      anchor -0.000000 -0.071800 -0.000250
+                    }
+                    device [
+                      RotationalMotor {
+                        name "m3"
+                        maxVelocity 22.0
+                        minPosition -1.9198621771937625
+                        maxPosition 1.9198621771937625
+                        maxTorque 1.5
+                      }
+                      PositionSensor {
+                        name "m3_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation -0.000000 -0.071800 -0.000250
+                      children [
+                        Shape {
+                          appearance DEF link_2_material PBRAppearance {
+                            baseColor 0.365590 0.371538 0.386467
+                            roughness 1.000000
+                            metalness 0
+                          }
+                          geometry DEF link_2_visual Mesh {
+                            url "link_2_visual.stl"
+                          }
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0.000000 0.000000 1.000000
+                            anchor 0.000000 -0.071800 -0.000250
+                          }
+                          device [
+                            RotationalMotor {
+                              name "m4"
+                              maxVelocity 22.0
+                              minPosition -1.9198621771937625
+                              maxPosition 1.9198621771937625
+                              maxTorque 1.5
+                            }
+                            PositionSensor {
+                              name "m4_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.000000 -0.071800 -0.000250
+                            children [
+                              Shape {
+                                appearance DEF hand_material PBRAppearance {
+                                  baseColor 0.382760 0.391357 0.426974
+                                  roughness 1.000000
+                                  metalness 0
+                                }
+                                geometry DEF hand_visual Mesh {
+                                  url "hand_visual.stl"
+                                }
+                              }
+                              HingeJoint {
+                                jointParameters HingeJointParameters {
+                                  axis -1.000000 -0.000000 -0.000000
+                                  anchor 0.022600 -0.083600 -0.022600
+                                }
+                                device [
+                                  RotationalMotor {
+                                    name "m5"
+                                    maxVelocity 22.0
+                                    minPosition -1.7453292519943295
+                                    maxPosition 0.17453292519943295
+                                    maxTorque 1.5
+                                  }
+                                  PositionSensor {
+                                    name "m5_sensor"
+                                  }
+                                ]
+                                endPoint Solid {
+                                  translation 0.022600 -0.083600 -0.022600
+                                  rotation 0.707107 0.000000 -0.707107 3.141593
+                                  children [
+                                    Shape {
+                                      appearance DEF fingers_material PBRAppearance {
+                                        baseColor 0.722174 0.765577 0.899235
+                                        roughness 1.000000
+                                        metalness 0
+                                      }
+                                      geometry DEF fingers_visual Mesh {
+                                        url "fingers_visual.stl"
+                                      }
+                                    }
+                                  ]
+                                  name "fingers"
+                                  boundingObject Group {
+                                    children [
+                                      Pose {
+                                        translation -0.000000 -0.000000 0.042850
+                                        rotation 0.000000 -0.000000 -1.000000 3.141593
+                                        children [
+                                          DEF hn07-i101 Mesh {
+                                            url "hn07-i101.stl"
+                                          }
+                                        ]
+                                      }
+                                      Pose {
+                                        translation 0.018000 0.024006 0.042850
+                                        rotation -0.096183 0.995364 -0.000000 3.141593
+                                        children [
+                                          DEF pinza_1 Mesh {
+                                            url "pinza_1.stl"
+                                          }
+                                        ]
+                                      }
+                                      Pose {
+                                        translation -0.000000 -0.000000 0.022350
+                                        rotation -0.000000 1.000000 0.000000 1.570796
+                                        children [
+                                          DEF fr07-h101 Mesh {
+                                            url "fr07-h101.stl"
+                                          }
+                                        ]
+                                      }
+                                      Pose {
+                                        translation 0.000000 0.000000 0.003850
+                                        rotation 1.000000 -0.000000 0.000000 3.141593
+                                        children [
+                                          DEF hn07-n101 Mesh {
+                                            url "hn07-n101.stl"
+                                          }
+                                        ]
+                                      }
+                                      Pose {
+                                        translation 0.018000 0.024006 0.021850
+                                        rotation -0.096183 0.995364 -0.000000 3.141593
+                                        children [
+                                          USE pinza_1
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                  physics Physics {
+                                    density -1
+                                    mass 0.042698
+                                    centerOfMass [ 0.000000 0.025905 0.022725 ]
+                                    inertiaMatrix [
+                                      5.811397e-05 1.040452e-05 5.123920e-05
+                                      -1.382030e-10 1.162647e-12 4.144824e-07
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                            name "hand"
+                            boundingObject Group {
+                              children [
+                                Pose {
+                                  translation 0.000000 -0.079600 -0.001600
+                                  rotation -0.577350 0.577350 -0.577350 2.094395
+                                  children [
+                                    DEF thumb Mesh {
+                                      url "thumb.stl"
+                                    }
+                                  ]
+                                }
+                                Pose {
+                                  translation -0.000000 -0.041800 -0.022600
+                                  rotation -0.707107 0.000000 0.707107 3.141593
+                                  children [
+                                    DEF fr07-s101 Mesh {
+                                      url "fr07-s101.stl"
+                                    }
+                                  ]
+                                }
+                                Pose {
+                                  translation -0.000000 -0.041800 -0.022600
+                                  children [
+                                    USE fr07-s101
+                                  ]
+                                }
+                                Pose {
+                                  translation 0.000000 0.000000 -0.022600
+                                  rotation -1.000000 0.000000 -0.000000 1.570796
+                                  children [
+                                    DEF mx-28_body Mesh {
+                                      url "mx-28_body.stl"
+                                    }
+                                  ]
+                                }
+                                Pose {
+                                  translation 0.000000 -0.083600 -0.022600
+                                  rotation 0.577350 -0.577350 0.577350 2.094395
+                                  children [
+                                    USE mx-28_body
+                                  ]
+                                }
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 0.232959
+                              centerOfMass [ -0.034349 -0.069336 -0.048416 ]
+                              inertiaMatrix [
+                                2.015640e-01 2.012391e-01 2.013865e-01
+                                -1.140472e-04 2.065714e-04 7.025468e-04
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "link_2"
+                      boundingObject Group {
+                        children [
+                          Pose {
+                            translation 0.000000 -0.071800 -0.004100
+                            rotation -0.000000 0.000000 -1.000000 3.141593
+                            children [
+                              USE hn07-n101
+                            ]
+                          }
+                          Pose {
+                            translation 0.000000 -0.041800 -0.022600
+                            children [
+                              USE fr07-s101
+                            ]
+                          }
+                          Pose {
+                            translation 0.000000 0.000000 -0.022600
+                            rotation -1.000000 -0.000000 0.000000 1.570796
+                            children [
+                              USE mx-28_body
+                            ]
+                          }
+                          Pose {
+                            translation -0.000000 -0.071800 -0.022600
+                            rotation 0.000000 -1.000000 0.000000 1.570796
+                            children [
+                              USE fr07-h101
+                            ]
+                          }
+                          Pose {
+                            translation -0.000000 -0.071800 -0.043100
+                            rotation 0.000000 -1.000000 -0.000000 3.141593
+                            children [
+                              USE hn07-i101
+                            ]
+                          }
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.107966
+                        centerOfMass [ -0.000017 -0.017415 -0.096845 ]
+                        inertiaMatrix [
+                          1.003088e-01 1.002118e-01 1.000974e-01
+                          -3.488008e-08 1.376275e-07 1.384481e-04
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "link"
+                boundingObject Group {
+                  children [
+                    Pose {
+                      translation 0.000000 -0.041800 -0.022600
+                      children [
+                        USE fr07-s101
+                      ]
+                    }
+                    Pose {
+                      translation 0.000000 -0.071800 -0.043100
+                      rotation 0.000000 1.000000 0.000000 3.141593
+                      children [
+                        USE hn07-i101
+                      ]
+                    }
+                    Pose {
+                      translation 0.000000 -0.071800 -0.022600
+                      rotation -0.000000 -1.000000 -0.000000 1.570796
+                      children [
+                        USE fr07-h101
+                      ]
+                    }
+                    Pose {
+                      translation -0.000000 -0.071800 -0.004100
+                      rotation -0.000000 -0.000000 -1.000000 3.141593
+                      children [
+                        USE hn07-n101
+                      ]
+                    }
+                    Pose {
+                      translation 0.000000 0.000000 -0.022600
+                      rotation -1.000000 -0.000000 -0.000000 1.570796
+                      children [
+                        USE mx-28_body
+                      ]
+                    }
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.107966
+                  centerOfMass [ -0.000017 -0.017415 -0.096845 ]
+                  inertiaMatrix [
+                    1.003088e-01 1.002118e-01 1.000974e-01
+                    -3.488008e-08 1.376275e-07 1.384481e-04
+                  ]
+                }
+              }
+            }
+          ]
+          name "zlink"
+          boundingObject Group {
+            children [
+              Pose {
+                translation 0.018500 -0.000000 -0.032000
+                rotation -0.577350 0.577350 -0.577350 2.094395
+                children [
+                  USE hn07-n101
+                ]
+              }
+              Pose {
+                translation 0.000000 -0.000000 -0.032000
+                rotation 1.000000 0.000000 -0.000000 1.570796
+                children [
+                  USE fr07-h101
+                ]
+              }
+              Pose {
+                rotation 1.000000 0.000000 -0.000000 3.141593
+                children [
+                  USE hn07-n101
+                ]
+              }
+              Pose {
+                translation -0.020500 0.000000 -0.032000
+                rotation -0.577350 -0.577350 0.577350 2.094395
+                children [
+                  USE hn07-i101
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.032000
+            centerOfMass [ -0.000500 -0.000000 -0.024000 ]
+            inertiaMatrix [
+              6.144000e-06 1.223600e-05 6.092000e-06
+              2.275957e-21 -1.280000e-07 -1.776357e-21
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject Group {
+      children [
+        Pose {
+          translation 0.031499 0.000000 0.032750
+          rotation -0.577350 0.577350 -0.577350 2.094395
+          children [
+            USE mx-28_body
+          ]
+        }
+        DEF base Mesh {
+          url "base.stl"
+        }
+      ]
+    }
+
+  }
+}

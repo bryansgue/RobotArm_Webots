@@ -1,0 +1,101 @@
+{
+    "documentId": "195af9e81105eabd0e0d5bfe",
+    "outputFormat": "urdf",
+    "robotName": "RobotArm",
+    "drawFrames": false,
+    "drawCollisions": false,
+    "assemblyName": "Robot_Arm",
+    "simplifySTLs": "all",
+    "mergeSTLs": "visual",
+    "maxSTLSize": 1,
+    "useScads": false,
+    // Those can be used to configure the joint max efforts and velocity, and
+    // overriden for specific joints
+    "jointMaxEffort": {
+        "default": 1.5,
+        "head_pitch": 0.5
+    },
+    "jointMaxVelocity": 22,
+    // This can be used to override the dynamics of some part (suppose it's a compound
+    // which dynamics is well specified)
+    "dynamics": {
+        "FR07-H101": {
+            "mass": 0.008,
+            "com": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "inertia": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        "HN07-N101": {
+            "mass": 0.008,
+            "com": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "inertia": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        "HN07-i101": {
+            "mass": 0.008,
+            "com": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "inertia": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        "mx-28_body": {
+            "mass": 0.080,
+            "com": [
+                0,
+                0.1,
+                0
+            ],
+            "inertia": [
+                0.1,
+                0,
+                0,
+                0,
+                0.1,
+                0,
+                0,
+                0,
+                0.1
+            ]
+        },
+        // "fixed" can be used to assign a null mass to the object, which makes it fixed (non-dynamics)
+        "base": "fixed"
+    }
+}
